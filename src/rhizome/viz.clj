@@ -20,17 +20,13 @@
     [javax.script
      ScriptEngineManager]))
 
-(def ^:private shortcut-mask
-  (.. Toolkit getDefaultToolkit getMenuShortcutKeyMask))
-
-(def ^:private close-key
-  (KeyStroke/getKeyStroke KeyEvent/VK_W (int shortcut-mask)))
-
 (defn create-frame
   "Creates a frame for viewing graphviz images.  Only useful if you don't want to use the default frame."
   [name]
   (delay
-    (let [frame (JFrame. ^String name)
+    (let [close-key (KeyStroke/getKeyStroke KeyEvent/VK_W
+                                            (.. Toolkit getDefaultToolkit getMenuShortcutKeyMask))
+          frame (JFrame. ^String name)
           image-icon (ImageIcon.)
           pane (-> image-icon JLabel. JScrollPane.)]
       (doto pane
