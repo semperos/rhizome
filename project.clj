@@ -1,5 +1,6 @@
 (defproject org.clojars.semperos/rhizome "0.2.1.1"
   :description "a simple way to visualize graphs"
+  :url "https://github.com/semperos/rhizome"
   :license {:name "MIT License"
             :url "http://opensource.org/licenses/MIT"}
   :dependencies []
